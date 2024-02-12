@@ -1,0 +1,15 @@
+<p id="login">login</p>
+<form [formGroup]="userData" id="loginForm">
+    <p>Name</p>
+    <input name="name" formControlName="fullName" />
+    <ng-container *ngIf="userData.controls.name?.errors&&userData.controls.fullName.dirty">
+        <div *ngIf="userData.controls.name?.errors?.requierd"> it is requierd </div>
+    </ng-container>
+    <p>Password</p>
+    <input name="password" formControlName="password" />
+    <ng-container *ngIf="userData.controls.password?.errors && userData.controls.password.dirty ">
+        <div *ngIf="userData.controls.password?.errors?.requierd"> it is requierd</div>
+    </ng-container>
+    <button [disabled]="userData.invalid" (click)="sendUserData()" appDirectives>O.K</button>
+    <p>{{massage}}</p>
+</form>
